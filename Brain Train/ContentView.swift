@@ -8,15 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var rock = 0
-    @State private var paper = 0
-    @State private var scissors = 0
+    let moves = ["rock", "paper", "scissors"]
+    @State private var currentChoice = Int.random(in: 0..<3)
+    @State private var playerWin = Bool.random()
+    @State private var score = 0
+    
     
     var body: some View {
-        Text("Hello, world!")
-            .padding()
-            .foregroundColor(.yellow)
-            .background(.red)
+        ZStack{
+            LinearGradient(colors: [.blue, .indigo], startPoint: .top, endPoint: .bottom)
+                .ignoresSafeArea()
+            
+            
+            VStack{
+                Text("Player Score: \(score)")
+                    .foregroundColor(.secondary)
+                    .fontWeight(.medium)
+            }
+        }
     }
 }
 
